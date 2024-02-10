@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Composition</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="text"],
+  textarea {
+    width: calc(100% - 22px); /* Adjust for padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="email"]:focus,
+  input[type="text"]:focus,
+  textarea:focus {
+    border-color: #007bff;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Email Composition</h2>
+  <form id="emailForm">
+    <label for="receiver">Receiver Email:</label>
+    <input type="email" id="receiver" name="receiver" placeholder="Enter receiver's email" required>
+    
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" placeholder="Type your message here" required></textarea>
+    
+    <button type="submit" id="sendButton">Send</button>
+    <span id="statusMessage"></span>
+  </form>
+</div>
+
+<script>
+  // JavaScript to handle form submission
+  document.getElementById('emailForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+    
+    // Displaying sending status
+    var statusMessage = document.getElementById('statusMessage');
+    statusMessage.textContent = 'Sending...';
+    
+    // Simulate sending email (in real application, this would be an AJAX call to a backend)
+    setTimeout(function() {
+      statusMessage.textContent = 'Email sent successfully!';
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>
